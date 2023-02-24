@@ -1,8 +1,8 @@
 import tkinter as tk
 
-from controllers.root import RootController
 from model.base import Model
-from views.root import RootView
+from view.root import RootView
+from controller.root import RootController
 
 class App(tk.Tk):
     def __init__(self):

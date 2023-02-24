@@ -2,7 +2,7 @@ import tkinter as tk
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from controllers.root import RootController
+    from controller.root import RootController
 
 class RootView(tk.Frame):
     controller: 'RootController'
@@ -10,10 +10,16 @@ class RootView(tk.Frame):
     def __init__(self, parent):
         super().__init__(parent)
 
-        self.increment_button = tk.Button(self, text="Inc", command=self.increment_clicked)
+        self.increment_button = tk.Button(
+            self,
+            text="Inc",
+            command=self.increment_clicked)
         self.increment_button.pack()
 
-        self.decrement_button = tk.Button(self, text="Dec", command=self.decrement_clicked)
+        self.decrement_button = tk.Button(
+            self,
+            text="Dec",
+            command=self.decrement_clicked)
         self.decrement_button.pack()
 
         self.count_label = tk.Label(self, text="0")
