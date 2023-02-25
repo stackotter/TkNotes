@@ -18,4 +18,4 @@ class SignInController:
         self.app.show("onboarding")
 
     def sign_in(self, email: str, password: str):
-        pass
+        print(email + ": " + password)

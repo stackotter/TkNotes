@@ -11,6 +11,9 @@ class OnboardingView(View):
     def __init__(self, parent):
         super().__init__(parent)
 
+        self.label = tk.Label(self, text="Welcome to Vector!")
+        self.label.pack()
+
         self.sign_in_button = tk.Button(
             self,
             text="Sign in",

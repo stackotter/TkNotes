@@ -6,6 +6,7 @@ class LabelledEntry(tk.Frame):
 
         self.label = tk.Label(self, text=label)
         self.label.pack(anchor=tk.W)
+
         self.entry = tk.Entry(self, **kwargs)
         self.entry.pack(anchor=tk.W)
 

@@ -10,6 +10,10 @@ from model.sign_in import SignInModel
 from view.sign_in import SignInView
 from controller.sign_in import SignInController
 
+from model.sign_up import SignUpModel
+from view.sign_up import SignUpView
+from controller.sign_up import SignUpController
+
 class App(tk.Tk):
     frames: dict[str, tuple]
     current_page: Optional[tk.Frame]
@@ -23,6 +27,7 @@ class App(tk.Tk):
         self.pages = {
             "onboarding": (OnboardingModel, OnboardingView, OnboardingController),
             "sign_in": (SignInModel, SignInView, SignInController),
+            "sign_up": (SignUpModel, SignUpView, SignUpController),
         }
 
         self.current_page = None
