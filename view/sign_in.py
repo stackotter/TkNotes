@@ -7,8 +7,9 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from controller.sign_in import SignInController
 
+
 class SignInView(View):
-    controller: 'SignInController'
+    controller: "SignInController"
 
     def __init__(self, parent):
         super().__init__(parent)
@@ -27,3 +28,6 @@ class SignInView(View):
 
     def sign_in(self, email, password):
         self.controller.sign_in(email, password)
+
+    def show_error(self, error):
+        self.form.error_label["text"] = error

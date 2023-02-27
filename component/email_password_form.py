@@ -1,8 +1,8 @@
-from typing import Callable, Optional
-
 import tkinter as tk
 
+from typing import Callable, Optional
 from component.labelled_entry import LabelledEntry
+
 
 class EmailPasswordForm(tk.Frame):
     def __init__(
@@ -15,6 +15,9 @@ class EmailPasswordForm(tk.Frame):
 
         self.cancel_handler = cancel_handler
         self.submit_handler = submit_handler
+
+        self.error_label = tk.Label(self)
+        self.error_label.pack(pady=4)
 
         self.email_entry = LabelledEntry(self, "Email")
         self.email_entry.pack(pady=4)

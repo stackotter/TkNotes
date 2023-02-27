@@ -5,11 +5,16 @@ if TYPE_CHECKING:
     from view.onboarding import OnboardingView
     from app import App
 
+
 class OnboardingController:
-    view: 'OnboardingView'
+    view: "OnboardingView"
     model: OnboardingModel
 
-    def __init__(self, app: 'App', view: 'OnboardingView', model: OnboardingModel):
+    def __init__(
+            self,
+            app: "App",
+            view: "OnboardingView",
+            model: OnboardingModel):
         self.app = app
         self.view = view
         self.model = model

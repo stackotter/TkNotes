@@ -5,8 +5,9 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from controller.onboarding import OnboardingController
 
+
 class OnboardingView(View):
-    controller: 'OnboardingController'
+    controller: "OnboardingController"
 
     def __init__(self, parent):
         super().__init__(parent)

@@ -1,5 +1,6 @@
 import tkinter as tk
 
+
 class LabelledEntry(tk.Frame):
     def __init__(self, parent, label: str, **kwargs):
         super().__init__(parent)
