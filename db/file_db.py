@@ -39,5 +39,4 @@ class FileDb:
         """
 
         with open(self._file, "w") as f:
-            print(self._tables)
             f.write(json.dumps(self._tables))

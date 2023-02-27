@@ -1,0 +1,62 @@
+import tkinter as tk
+from view.base import View
+
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from controller.home import HomeController
+
+
+class HomeView(View):
+    controller: "HomeController"
+
+    def __init__(self, parent):
+        super().__init__(parent)
+
+        self.label = tk.Label(self, text="My notes", font=("Arial", 24))
+        self.label.pack()
+
+        self.notes_list_frame = tk.Frame(self)
+        self.notes_list_frame.pack(pady=8)
+
+        self.add_button = tk.Button(
+            self,
+            text="New note",
+            command=self.new_note
+        )
+        self.add_button.pack()
+
+        self.pack(side=tk.TOP)
+
+    def set_controller(self, controller):
+        super().set_controller(controller)
+
+        for note in controller.get_notes():
+            inner = tk.Frame(self.notes_list_frame)
+
+            label = tk.Label(inner, text=note.title)
+            label.pack(side=tk.LEFT)
+
+            edit_button = tk.Button(
+                inner,
+                text="Edit",
+                command=lambda: self.edit_note(note._id)
+            )
+            edit_button.pack(side=tk.LEFT)
+
+            delete_button = tk.Button(
+                inner,
+                text="Delete",
+                command=lambda: self.delete_note(note._id)
+            )
+            delete_button.pack(side=tk.LEFT)
+
+            inner.pack(anchor=tk.W)
+
+    def new_note(self):
+        pass
+
+    def edit_note(self, note_id: int):
+        pass
+
+    def delete_note(self, note_id: int):
+        pass

@@ -22,6 +22,10 @@ from model.sign_up import SignUpModel
 from view.sign_up import SignUpView
 from controller.sign_up import SignUpController
 
+from model.home import HomeModel
+from view.home import HomeView
+from controller.home import HomeController
+
 
 class App(tk.Tk):
     frames: dict[str, tuple[Model, View, Controller]]
@@ -43,6 +47,7 @@ class App(tk.Tk):
             ),
             "sign_in": (SignInModel, SignInView, SignInController),
             "sign_up": (SignUpModel, SignUpView, SignUpController),
+            "home": (HomeModel, HomeView, HomeController),
         }
         self.db = FileDb("./db.json")
         self.session = Session()

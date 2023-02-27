@@ -29,7 +29,7 @@ class FileDbTable:
         """
 
         self._refresh_rows()
-        row["id"] = self._highest_id
+        row["id"] = self._highest_id + 1
         self._highest_id += 1
         self._rows.append(row)
         self._save()

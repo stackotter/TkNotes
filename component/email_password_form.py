@@ -17,6 +17,7 @@ class EmailPasswordForm(tk.Frame):
         self.submit_handler = submit_handler
 
         self.error_label = tk.Label(self)
+        self.error_label["foreground"] = "red"
         self.error_label.pack(pady=4)
 
         self.email_entry = LabelledEntry(self, "Email")
