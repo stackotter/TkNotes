@@ -28,3 +28,6 @@ class HomeModel(Model):
             ))
 
         return notes
+
+    def delete_note(self, note_id):
+        self._table.remove(note_id)

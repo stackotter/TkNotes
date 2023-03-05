@@ -29,8 +29,13 @@ class HomeView(View):
 
     def set_controller(self, controller):
         super().set_controller(controller)
+        self.set_notes(controller.get_notes())
 
-        for note in controller.get_notes():
+    def set_notes(self, notes):
+        for child in self.notes_list_frame.winfo_children():
+            child.destroy()
+
+        for note in notes:
             inner = tk.Frame(self.notes_list_frame)
 
             label = tk.Label(inner, text=note.title)
@@ -53,10 +58,10 @@ class HomeView(View):
             inner.pack(anchor=tk.W)
 
     def new_note(self):
-        pass
+        self.controller.new_note()
 
     def edit_note(self, note_id: int):
-        pass
+        self.controller.edit_note(note_id)
 
     def delete_note(self, note_id: int):
-        pass
+        self.controller.delete_note(note_id)
