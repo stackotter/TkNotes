@@ -38,8 +38,14 @@ class HomeView(View):
         for note in notes:
             inner = tk.Frame(self.notes_list_frame)
 
+            # Achieve a fixed width so that the list doesn't resize its
+            # width when notes are removed
+            dummy = tk.Frame(inner, width=300)
+            dummy.pack()
+            dummy.pack_propagate(False)
+
             label = tk.Label(inner, text=note.title)
-            label.pack(side=tk.LEFT)
+            label.pack(side=tk.LEFT, anchor=tk.W, expand=True)
 
             edit_button = tk.Button(
                 inner,
@@ -55,7 +61,7 @@ class HomeView(View):
             )
             delete_button.pack(side=tk.LEFT)
 
-            inner.pack(anchor=tk.W)
+            inner.pack(anchor=tk.W, expand=True, fill=tk.X)
 
     def apply_action(self, action, note_id: int):
         def wrapped():
