@@ -44,18 +44,23 @@ class HomeView(View):
             edit_button = tk.Button(
                 inner,
                 text="Edit",
-                command=lambda: self.edit_note(note.id_)
+                command=self.apply_action(self.edit_note, note.id_)
             )
             edit_button.pack(side=tk.LEFT)
 
             delete_button = tk.Button(
                 inner,
                 text="Delete",
-                command=lambda: self.delete_note(note.id_)
+                command=self.apply_action(self.delete_note, note.id_)
             )
             delete_button.pack(side=tk.LEFT)
 
             inner.pack(anchor=tk.W)
+
+    def apply_action(self, action, note_id: int):
+        def wrapped():
+            return action(note_id)
+        return wrapped
 
     def new_note(self):
         self.controller.new_note()

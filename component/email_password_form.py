@@ -30,12 +30,14 @@ class EmailPasswordForm(tk.Frame):
         self.cancel_button = tk.Button(
             self.button_frame,
             text="Cancel",
-            command=self.cancel_clicked)
+            command=self.cancel_clicked
+        )
         self.cancel_button.pack(side=tk.LEFT)
         self.sign_in_button = tk.Button(
             self.button_frame,
             text=submit_label,
-            command=self.submit_clicked)
+            command=self.submit_clicked
+        )
         self.sign_in_button.pack(side=tk.LEFT)
         self.button_frame.pack()
 

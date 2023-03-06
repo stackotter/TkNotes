@@ -38,6 +38,9 @@ class NoteEditorController:
             else:
                 return note
 
+    def cancel(self):
+        self.app.show("home")
+
     def save(self, title: str, content: str):
         note_id = self.app.session.get_current_note_id()
 

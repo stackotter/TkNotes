@@ -13,17 +13,25 @@ class NoteEditorView(View):
         super().__init__(parent)
 
         self.title_field = tk.Entry(self, font=("Arial", 24))
-        self.title_field.pack()
+        self.title_field.pack(anchor=tk.W, padx=4, pady=4)
 
         self.content_field = tk.Text(self)
-        self.content_field.pack()
+        self.content_field.pack(anchor=tk.W, padx=4, pady=4)
 
+        self.button_frame = tk.Frame(self)
+        self.cancel_button = tk.Button(
+            self.button_frame,
+            text="Cancel",
+            command=self.cancel_button_pressed
+        )
+        self.cancel_button.pack(side=tk.LEFT)
         self.save_button = tk.Button(
-            self,
+            self.button_frame,
             text="Save",
             command=self.save_button_pressed
         )
-        self.save_button.pack()
+        self.save_button.pack(side=tk.LEFT)
+        self.button_frame.pack(anchor=tk.W, padx=4, pady=4)
 
         self.pack(side=tk.TOP)
 
@@ -34,6 +42,9 @@ class NoteEditorView(View):
 
         self.title_field.insert(tk.END, note.title)
         self.content_field.insert(tk.END, note.content)
+
+    def cancel_button_pressed(self):
+        self.controller.cancel()
 
     def save_button_pressed(self):
         self.controller.save(
