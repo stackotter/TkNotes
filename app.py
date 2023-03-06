@@ -26,6 +26,10 @@ from model.home import HomeModel
 from view.home import HomeView
 from controller.home import HomeController
 
+from model.note_editor import NoteEditorModel
+from view.note_editor import NoteEditorView
+from controller.note_editor import NoteEditorController
+
 
 class App(tk.Tk):
     frames: dict[str, tuple[Model, View, Controller]]
@@ -48,6 +52,11 @@ class App(tk.Tk):
             "sign_in": (SignInModel, SignInView, SignInController),
             "sign_up": (SignUpModel, SignUpView, SignUpController),
             "home": (HomeModel, HomeView, HomeController),
+            "note_editor": (
+                NoteEditorModel,
+                NoteEditorView,
+                NoteEditorController
+            ),
         }
         self.db = FileDb("./db.json")
         self.session = Session()

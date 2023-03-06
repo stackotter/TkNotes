@@ -21,6 +21,17 @@ class FileDbTable:
 
         self._update_highest_id()
 
+    def get(self, row_id: int) -> Optional[dict[str, Any]]:
+        """
+        Gets the row with the given id. Returns `None` if no such row
+        exists.
+        """
+
+        for row in self._rows:
+            if row["id"] == row_id:
+                return row
+        return None
+
     def insert(self, row: dict[str, Any]) -> int:
         """
         Appends a new row to the end of the db. Overrides the `id`

@@ -44,14 +44,14 @@ class HomeView(View):
             edit_button = tk.Button(
                 inner,
                 text="Edit",
-                command=lambda: self.edit_note(note._id)
+                command=lambda: self.edit_note(note.id_)
             )
             edit_button.pack(side=tk.LEFT)
 
             delete_button = tk.Button(
                 inner,
                 text="Delete",
-                command=lambda: self.delete_note(note._id)
+                command=lambda: self.delete_note(note.id_)
             )
             delete_button.pack(side=tk.LEFT)
 

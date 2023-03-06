@@ -16,17 +16,7 @@ class HomeModel(Model):
             lambda row: row["author_id"] == user_id
         )
 
-        print(self._table._rows)
-
-        notes = []
-        for row in rows:
-            notes.append(Note(
-                row["id"],
-                row["author_id"],
-                row["title"],
-                row["content"]
-            ))
-
+        notes = list(map(Note.from_row, rows))
         return notes
 
     def delete_note(self, note_id):
