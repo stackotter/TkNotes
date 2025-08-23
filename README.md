@@ -16,3 +16,7 @@ The GUI uses the MVC architecture (not a fan).
 brew install python-tk
 pip install -r requirements.txt
 ```
+
+## Proof of ownership
+
+Hash: `d67d191058b3dc6e2bf853a41e9219a2b86c05396b3c8065e710ada844f79c1e`
